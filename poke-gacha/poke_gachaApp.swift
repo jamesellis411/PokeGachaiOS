@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct poke_gachaApp: App {
+struct YourAppNameApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
