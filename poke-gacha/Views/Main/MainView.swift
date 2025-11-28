@@ -41,6 +41,7 @@ struct MainView: View {
             // Clicker
             Button {
                 game.addCoin()
+                SoundManager.shared.playSound(named: "click")
             } label: {
                 Image("Pokeball")
                     .resizable()

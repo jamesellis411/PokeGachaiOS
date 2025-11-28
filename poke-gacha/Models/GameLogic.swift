@@ -24,7 +24,7 @@ class GameLogic: ObservableObject {
     init() {
             load()
 
-            // 🔥 Autosave whenever ANY published value changes
+            // Autosave whenever ANY published value changes
             autosaveCancellable = objectWillChange
                 .sink { [weak self] _ in
                     self?.save()
@@ -33,6 +33,7 @@ class GameLogic: ObservableObject {
     
     func addCoin() {
         coins += coinsPerTap //on button click
+        SoundManager.shared.playSound(named: "click")
     }
     
     func buyCapsule() async -> OwnedPokemon? {
@@ -42,11 +43,16 @@ class GameLogic: ObservableObject {
         }
         
         coins -= capsuleCost // removes coins from user on successful purchase
+        SoundManager.shared.playSound(named: "capsule")
         
         do {
             let randomID = Int.random(in: 1...151) // get a random pokedex entry for the first 151 pokemon
             let newPokemon = try await PokemonService.fetchPokemon(idOrName: "\(randomID)") // fetch from pokemon service using the random ID
             let isShiny = Double.random(in: 0...1) < shinyOddsBoost
+            
+            if isShiny {
+                SoundManager.shared.playSound(named: "shiny")
+            }
             
             let owned = OwnedPokemon(pokemon: newPokemon, isShiny: isShiny)
             collection.append(owned)
@@ -69,7 +75,7 @@ class GameLogic: ObservableObject {
     func buyShinyBoostUpgrade() -> Bool {
         guard coins >= 500 else { return false }
         coins -= 500
-        shinyOddsBoost += 0.1
+        shinyOddsBoost += 0.05
         return true
     }
     

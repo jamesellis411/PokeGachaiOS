@@ -29,7 +29,7 @@ struct UpgradesView: View {
                 // Upgrade 1:
                 UpgradesCard(
                     title: "Trainer Gloves",
-                    subtitle: "+1 Coin Per Click",
+                    subtitle: "+1 Coin Per Click (200 coins)",
                     action: {
                         game.buyGlovesUpgrade()
                     }
@@ -38,7 +38,7 @@ struct UpgradesView: View {
                 //Upgrade 2:
                 UpgradesCard(
                     title: "Shiny Charm",
-                    subtitle: "Increases shiny odds by 10%",
+                    subtitle: "Increases shiny odds by 10% (500 coins)",
                     action: {
                         game.buyShinyBoostUpgrade()
                     }
