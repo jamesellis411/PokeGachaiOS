@@ -18,7 +18,10 @@ struct MainView: View {
                     ProfileView()
                         .environmentObject(game)
                 } label: {
-                    Image(systemName: "person.circle.fill")
+                    Image(systemName: "person.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 55, height: 55)
                         .foregroundColor(.black)
                 }
                 Spacer()
