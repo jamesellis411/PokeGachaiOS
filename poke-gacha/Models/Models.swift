@@ -22,9 +22,16 @@ struct Pokemon: Codable, Identifiable {
 
 struct Sprites: Codable {
     let front_default: String?
+    let front_shiny: String?
 }
 
 struct PokemonType: Codable {
     let slot: Int
     let type: NamedAPIResource
+}
+
+struct OwnedPokemon: Identifiable, Codable {
+    let id = UUID()
+    let pokemon: Pokemon
+    let isShiny: Bool
 }
