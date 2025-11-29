@@ -9,7 +9,7 @@ PokeGacha is a SwiftUI project designed to explore API networking, state managem
 ## Check it Out Here
 ![PokeGachaGif](https://github.com/user-attachments/assets/67f6b504-2b88-45ef-b321-357064ad9cab)
 ## Features
-- Tap-based coun generation loop with a capsule purchase system that returns randomly selected Pokemon (including rare shiny variants)
+- Tap-based coin generation loop with a capsule purchase system that returns randomly selected Pokemon (including rare shiny variants)
 - Player progression mechanics such as purchasable upgrades that modify click power and shiny odds
 - Pokedex with searchable, sortable collections and reusable SwiftUI subviews that render Pokemon sprites
 - Capsule-opening animations, sound effects, and a welcoming opening screen
