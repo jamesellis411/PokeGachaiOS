@@ -8,12 +8,27 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var game: GameLogic
+    @State private var showOpening = true
 
     var body: some View {
-        NavigationStack {
-            MainView()
-                
+        ZStack {
+            NavigationStack {
+                MainView()
+                    .environmentObject(game)
+            }
+            .opacity(showOpening ? 0 : 1)
+            
+            if showOpening {
+                OpeningScreensView(isShowing: $showOpening)
+                    .transition(.opacity)
+                    .zIndex(1)
+            }
         }
-        .environmentObject(game)
+
     }
+}
+
+#Preview {
+    ContentView()
+        .environmentObject(GameLogic())
 }
