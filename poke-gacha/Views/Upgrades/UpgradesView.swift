@@ -38,7 +38,7 @@ struct UpgradesView: View {
                 //Upgrade 2:
                 UpgradesCard(
                     title: "Shiny Charm",
-                    subtitle: "Increases shiny odds by 10% (500 coins)",
+                    subtitle: "Increases shiny odds by 5% (500 coins)",
                     action: {
                         game.buyShinyBoostUpgrade()
                     }

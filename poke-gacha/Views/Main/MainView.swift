@@ -64,7 +64,7 @@ struct MainView: View {
             // Bottom Row
             HStack {
                 NavigationLink("Battle") {
-                    // BattleView()
+                    BattlesView()
                 }
                 .buttonStyle(.bordered)
 
