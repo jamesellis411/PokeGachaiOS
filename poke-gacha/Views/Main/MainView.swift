@@ -22,7 +22,7 @@ struct MainView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 55, height: 55)
-                        .foregroundColor(.black)
+                        .foregroundColor(.gray)
                 }
                 Spacer()
 
@@ -57,7 +57,11 @@ struct MainView: View {
                     }
                 }
             }
-            .buttonStyle(.bordered)
+            .buttonStyle(PokemonButtonStyle(
+                color: .electricYellow,
+                canAfford: game.coins >= 100
+            ))
+            
 
             Spacer()
 
@@ -66,7 +70,10 @@ struct MainView: View {
                 NavigationLink("Battle") {
                     BattlesView()
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(PokemonButtonStyle(
+                    color: .waterBlue,
+                    canAfford: false
+                ))
 
                 Spacer()
                 
@@ -74,7 +81,10 @@ struct MainView: View {
                     UpgradesView()
                         .environmentObject(game)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(PokemonButtonStyle(
+                    color: .grassGreen,
+                    canAfford: game.coins >= 200
+                ))
                 
                 Spacer()
 
@@ -82,7 +92,10 @@ struct MainView: View {
                     PokedexView()
                         .environmentObject(game)
                 }
-                .buttonStyle(.bordered)
+                .buttonStyle(PokemonButtonStyle(
+                    color: .fireRed,
+                    canAfford: false
+                ))
             }
         }
         .padding(.vertical)
